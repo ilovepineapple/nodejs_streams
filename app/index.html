@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Welcome to the webstreams</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=Open+Sans:ital,wght@0,400;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --main-bg-color: #eff0f3;
+        --main-headline: #0d0d0d;
+        --main-paragraph: #2a2a2a;
+        --main-button: #ff8e3c;
+        --main-button-text: #0d0d0d;
+        --main-secondary: #fffffe;
+        --main-tertiary: #d9376e;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background-color: var(--main-bg-color);
+        margin: 0;
+        font-family: "Open Sans", sans-serif;
+        color: var(--main-paragraph);
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Montserrat", sans-serif;
+        color: var(--main-headline);
+        margin: 0 0 8px;
+      }
+
+      .page-title {
+        color: var(--main-tertiary);
+        margin: 8px 0;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        grid-gap: 8px;
+        align-items: stretch;
+        padding: 8px;
+        position: relative;
+      }
+
+      .card {
+        border: 1px solid var(--main-tertiary);
+        border-radius: 5px;
+        padding: 16px;
+      }
+
+      .buttons {
+        background-color: var(--main-bg-color);
+        position: sticky;
+        margin: 0 0 16px;
+        padding: 8px;
+        top: 0;
+        width: 100%;
+        z-index: 1;
+      }
+
+      button {
+        background-color: var(--main-button);
+        border: 0;
+        border-radius: 5px;
+        color: var(--main-button-text);
+        cursor: pointer;
+        leading-trim: both;
+        padding: 12px 24px;
+        text-edge: cap alphabetic;
+      }
+
+      button:hover {
+        background-color: var(--main-tertiary);
+        color: var(--main-secondary);
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="page-title">Welcome to the webstreams</h1>
+    <div class="buttons">
+      <button id="start">Start</button>
+      <button id="stop">Stop</button>
+    </div>
+    <main>
+      <div id="cards" class="grid"></div>
+    </main>
+    <script src="./index.js" type="module"></script>
+  </body>
+</html>
