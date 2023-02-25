@@ -1,4 +1,5 @@
 import { createServer } from "node:http";
+import { URL } from "node:url";
 import { createReadStream } from "node:fs";
 import { Readable, Transform } from "node:stream";
 import { WritableStream, TransformStream } from "node:stream/web";
@@ -16,6 +17,12 @@ createServer(async (req, res) => {
     res.writeHead(204, headers);
     res.end();
   }
+
+  const urlPath = new URL(req.url, `http://${req.headers.host}`);
+  const startOn = urlPath.searchParams.get("start_on");
+  const limit = urlPath.searchParams.get("limit");
+
+  console.log({ startOn, limit });
 
   let items = 0;
   req.once("close", (_) => console.log(`connection was closed!`, items));
@@ -41,7 +48,7 @@ createServer(async (req, res) => {
     .pipeTo(
       new WritableStream({
         write: async function (chunk) {
-          await setTimeout(1000);
+          await setTimeout(500);
           items++;
           res.write(chunk);
         },
